@@ -28,14 +28,12 @@
                      </tr>
                   </thead>
                   <tbody>
+                     {% for lista in listas %}
                      <tr>
-                        <td>Lista V</td>
-                        <td>{{listav}}</td>
+                        <td>Lista {{lista}}</td>
+                        <td>{{listas[lista]}}</td>
                      </tr>
-                     <tr>
-                        <td>Lista M</td>
-                        <td>{{listam}}</td>
-                     </tr>
+                     {% endfor %}
                   </tbody>
                </table>
             </div>

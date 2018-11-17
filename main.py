@@ -12,24 +12,24 @@ app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 mysql.init_app(app)
+listas = {}
 
 @app.route("/")
 def home():
     cur = mysql.connection.cursor()
 
-    # -- LISTA V --
-    cur.execute("SELECT Votos FROM votos WHERE Lista = 'V'")
-    data = cur.fetchone()
-    listav = data['Votos']
+    cur.execute("SELECT Lista FROM votos")
+    data = cur.fetchall()
 
-    # -- LISTA M --
-    data = cur.execute("SELECT Votos FROM votos WHERE Lista = 'M'")
-    data = cur.fetchone()
-    listam = data['Votos']
-    
+    for x in data:
+        x = x['Lista']
+        cur.execute("SELECT Votos FROM votos WHERE Lista =  '" + x + "'" )
+        data = cur.fetchone()
+        listas[x] = data['Votos']
+
     cur.close()
-    return render_template("index.html", listav=listav, listam=listam)
 
+    return render_template("index.html", listas=listas)
 
 
 if __name__ == '__main__':
