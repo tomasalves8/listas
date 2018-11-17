@@ -1,28 +1,52 @@
 <!DOCTYPE html>
 <html>
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-th, td {
-    padding: 15px;
-}
-</style>
-<body>
-<table style="width:100%">
-  <tr>
-    <th>Lista</th>
-    <th>Votos</th>
-  </tr>
-  <tr>
-    <td>Lista V</td>
-    <td>{{listav}}</td>
-  </tr>
-  <tr>
-    <td>Lista M</td>
-    <td>{{listam}}</td>
-  </tr>
-</table>
-</body>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <style>
+      table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      }
+      th, td {
+      padding: 15px;
+      }
+   </style>
+   <body>
+      <div class="jumbotron jumbotron-fluid">
+         <div class="container">
+            <h1>Eleições 2018-2019</h1>
+            <p>Eleições virtuais para a Escola Vergilio Ferreira.</p>
+         </div>
+      </div>
+      <div class="container" style="margin-top:30px">
+         <div class="row">
+            <div class="col-sm-4">
+               <table class="table" style="width:90%">
+                  <thead class="thead-dark">
+                     <tr>
+                        <th scope="col">Lista</th>
+                        <th scope="col">Votos</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>Lista V</td>
+                        <td>{{listav}}</td>
+                     </tr>
+                     <tr>
+                        <td>Lista M</td>
+                        <td>{{listam}}</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+            <div class="col-sm-8">
+               <p>Todos os votos são automaticamente registrados aqui.</p>
+               <p>O seu voto ficara anonimo durante as Eleições.</p>
+            </div>
+         </div>
+      </div>
+   </body>
+   <div class="jumbotron text-center" style="margin-bottom:0">
+      <p>Escola Vergilio Ferreira</p>
+   </div>
 </html>

@@ -26,6 +26,7 @@ def home():
     data = cur.execute("SELECT Votos FROM votos WHERE Lista = 'M'")
     data = cur.fetchone()
     listam = data['Votos']
+    
     cur.close()
     return render_template("index.html", listav=listav, listam=listam)
 
