@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   {% from "includes/_formhelpers.html" import render_field %}
    <style>
       table, th, td {
       border: 1px solid black;
@@ -13,8 +14,8 @@
    <body>
       <div class="jumbotron jumbotron-fluid">
          <div class="container">
-            <h1>Eleições 2018-2019</h1>
-            <p>Eleições virtuais para a Escola Vergilio Ferreira.</p>
+            <h1>Eleições 2019-2020</h1>
+            <p>Eleições virtuais para a Escola Vergílio Ferreira.</p>
          </div>
       </div>
       <div class="container" style="margin-top:30px">
@@ -38,13 +39,31 @@
                </table>
             </div>
             <div class="col-sm-8">
-               <p>Todos os votos são automaticamente registrados aqui.</p>
-               <p>O seu voto ficara anonimo durante as Eleições.</p>
+               <p>Todos os votos são automaticamente registados aqui.</p>
+               <p>O seu voto ficará anónimo durante as Eleições.</p>
             </div>
+             {% with messages = get_flashed_messages(with_categories=true) %}
+    <div class="container">
+      {% include 'includes/_messages.html' %}
+      {% block body %}{% endblock %}
+             </div>
+             {% endwith %}
+             <form method="POST" action="">
+    <div class="form-group">
+      {{render_field(form.numero, class_="form-control")}}
+    </div>
+    <div class="form-group">
+        {{render_field(form.password, class_="form-control")}}
+    </div>
+    <div class="form-group">
+        {{render_field(form.listaselecao, class_="form-control")}}
+    </div>
+    <p><input type="submit" class="btn btn-primary" value="Submit"></p>
+  </form>
          </div>
       </div>
    </body>
    <div class="jumbotron text-center" style="margin-bottom:0">
-      <p>Escola Vergilio Ferreira</p>
+      <p>Escola Vergílio Ferreira</p>
    </div>
 </html>
